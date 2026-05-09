@@ -13,21 +13,10 @@
 #ifndef ITER_HPP
 #define ITER_HPP
 
-//tableau non-const + fonction non-const
-// → je veux lire ET modifier
-template <typename T>
-void iter(T *array, const int len, void (*func)(T &)){
+template <typename T, typename F>
+void iter(T *array, const int len, F func){
     for (int i = 0; i < len; i++)
         func(array[i]);
 }
-
-//tableau const + fonction const → je veux juste lire
-template <typename T>
-void iter(const T *array, const int len, void (*func)(const T &)){
-    for (int i = 0; i < len; i++)
-        func(array[i]);
-}
-
-// la surcharge — même nom, comportement différent selon le contexte
 
 #endif
